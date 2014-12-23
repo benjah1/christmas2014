@@ -1,0 +1,66 @@
+.page0.content {
+	.r {
+		width: $pageWidth/2;
+		height: $pageHeight;
+		margin-left: $pageWidth/2;
+		background-color: #CF000F;
+		$s: rgba($black, 0.2) 10px, rgba($white, 0.6) 10px, $white 12px, transparent 12px;
+		$color: #492727;
+		background-image:
+			linear-gradient( 0deg, $s),
+			linear-gradient( 180deg, $s),
+			linear-gradient( 90deg, $s),
+			linear-gradient( -90deg, $s),
+			repeating-linear-gradient(0deg,
+				rgba($color,0.0) 0px,
+				rgba($color,0.0) 2px,
+				rgba($color,0.1) 2px,
+				rgba($color,0.1) 4px,
+				rgba($color,0.0) 4px
+			);
+		$unit: 25px;
+		$blur: 2px;
+		position: relative;
+		&:after {
+			content: "";
+			position: absolute;
+			height: $pageHeight/3;
+			width: $pageWidth/6;
+			top: $pageHeight/3;
+			left: $pageWidth/6;
+			//outline: 1px solid #000;
+		}
+		&:before {
+			content: "";
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 88px;
+			left: 50px;
+		}
+		.slide.next &:before{
+			box-shadow: makeShadow((
+				(0 0 0 0 0 0 1 0 0 0 0 0 0) 
+				(0 0 0 0 0 0 1 0 0 0 0 0 0) 
+				(0 0 0 0 0 1 1 1 0 0 0 0 0) 
+				(0 0 0 0 0 1 1 1 0 0 0 0 0) 
+				(0 0 0 0 1 1 1 1 1 0 0 0 0) 
+				(0 0 0 1 1 1 1 1 1 1 0 0 0) 
+				(0 0 0 0 0 1 1 1 0 0 0 0 0) 
+				(0 0 0 0 1 1 1 1 1 0 0 0 0) 
+				(0 0 0 1 1 1 1 1 1 1 0 0 0) 
+				(0 0 1 1 1 1 1 1 1 1 1 0 0) 
+				(0 0 0 0 0 0 1 0 0 0 0 0 0) 
+				(0 0 0 0 0 0 1 0 0 0 0 0 0) 
+				(0 0 0 0 0 1 1 1 0 0 0 0 0) 
+				(0 0 0 0 0 0 0 0 0 0 0 0 0) 
+				(1 1 1 0 1 1 1 0 1 0 1 0 1) 
+				(0 0 1 0 1 0 1 0 1 0 1 0 1) 
+				(1 1 1 0 1 0 1 0 1 0 1 1 1) 
+				(1 0 0 0 1 0 1 0 1 0 0 0 1) 
+				(1 1 1 0 1 1 1 0 1 0 0 0 1)
+			), $unit, $blur);
+		}
+
+	}
+}

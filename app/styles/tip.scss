@@ -1,0 +1,31 @@
+.tip {
+	$s: rgba($black, 0.1) 2px, rgba($black, 0.4) 3px, transparent 4px;
+	background-image: 
+			linear-gradient( 0deg, $s),
+			linear-gradient( 180deg, $s),
+			linear-gradient( 90deg, $s),
+			linear-gradient( -90deg, $s);
+	background-color: transparentize(lighten($white,10%), 0);
+	color: $black;
+	padding: 10px 20px;
+	text-align: center;
+	box-shadow: 0px 0px 10px 1px $white;
+	transform: translateY(-100%) scale(0);
+	transition: transform 1s;
+	position: fixed;
+	top: 20px;
+	margin-left: 50%;
+
+	span {
+		font-size: 14px;
+	}
+
+	&.show {
+		transform: translateY(0%) scale(1);
+	}
+
+	&.notify {
+		width: 160px;
+		left: -100px;
+	}
+}

@@ -1,0 +1,128 @@
+
+/* image */
+.tree-ground {
+	& > .obj > .face {
+		&:after {
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			content: "";
+			// transform: rotate(45deg);
+		}
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: "";
+			width: 2px;
+			height: 2px;
+			border-radius: 50%;
+		}
+	}
+}
+
+.tree-stump {
+	& > .obj > .obj > .face {
+		left: -30px;
+		@include triangle(60px, 250px);
+	}
+}
+
+.tree-lv1 {
+	& > .obj > .obj > .face {
+		left: -90px;
+		@include triangle(180px, 200px);
+	}
+}
+
+
+.tree-lv2 {
+	.face {
+		left: -80px;
+		@include triangle(160px, 260px);
+	}
+}
+
+.platform {
+	& > div > div > .face {
+		left: -250px;
+	}
+	&-l, &-r,  {
+		width: 250px;
+		height: 80px;
+	}
+	&-f {
+		width: 500px;
+		height: 80px;
+	}
+	&-t, &-it {
+		width: 500px;
+		height: 250px;
+	}
+	&-if, &-il, &-ir {
+		width: 100px;
+		height: 40px;
+	}
+}
+
+.fence {
+	&-a {
+		width: 450px;
+		height: 100px;
+	}
+	&-b {
+		width: 150px;
+		height: 100px;
+	}
+}
+
+.char {
+	&-h .face {
+		width: 80px;
+		height: 178px;
+	}
+	&-w .face {
+		width: 70px;
+		height: 160px;
+	}
+}
+
+.road {
+	.face {
+		left: -50px;
+		top: -20px;
+		width: 100px;
+		height: 40px;
+	}
+}
+
+.text {
+	font-size: 60px;
+	text-align: center;
+	text-transform: uppercase;
+	&-m, &-c {
+		left: -200px;
+		width: 400px;
+		&> div {
+			transform-style: preserve-3d;
+		}
+		div > div {
+			transform-style: preserve-3d;
+			transform: translate3d(0,0,-4px);
+		}
+		div:before, div:after {
+			position: absolute;
+			content: "Merry";
+			left: 0px;
+			width: 400px;
+		}
+		div:after {
+			transform: translate3d(0,0,-2px);
+		}
+	}
+	&-c {
+		div:before, div:after {
+			content: "Christmas";
+		}
+	}
+}

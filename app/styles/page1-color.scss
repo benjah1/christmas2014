@@ -1,0 +1,549 @@
+
+.page1.content {
+	@extend %three-d; /* firefox */
+	.holder {
+		@extend %three-d; /* firefox */
+		width: $pageWidth;
+		height: $pageHeight;
+		
+		background-color: #ECECEC;
+		$color: darken($white, 40%);
+		background-image:
+			repeating-linear-gradient(0deg,
+				transparent 0px,
+				transparent 2px,
+				rgba($color,0.1) 2px,
+				rgba($color,0.1) 4px,
+				transparent 4px
+			);
+	}
+}
+
+.tree-ground {
+	$color: lighten($green, 10%);
+	.face:before {
+		box-shadow:
+			0px 0px 0px 80px darken($color, 10%),
+			0px 0px 0px 120px $color;
+	}	
+}
+
+.tree-stump {
+	$color: $yellow;
+	$shadow: rgba($black, 0.5);
+
+	&-l .tri-content {
+		background-image: linear-gradient(0deg,
+			transparentize($black, 0.1) 0px,
+			transparentize($black, 0.6) 4px,
+			transparent 10px
+		);
+		background-color: darken($color,10%);
+	}
+	&-r .tri-content {
+		background-image: linear-gradient(0deg,
+			transparentize($black, 0.1) 0px,
+			transparentize($black, 0.6) 4px,
+			transparent 10px
+		);
+		background-color: darken($color,0%);
+	}
+}
+
+.tree {
+	$color1: darken($green, 10%);
+	$color2: darken($color1, 10%);
+	$color5: darken($color1, 15%);
+	$color3: lighten($white, 5%);
+	$color4: darken($color3, 10%);
+
+	&-lv1-l .tri-content {
+		background-color: $color2;
+		&:after {
+			position: absolute;
+			content: "";
+			border-radius: 50%;
+			width: 2px;
+			height: 2px;
+			box-shadow: 125px 290px 2px 115px $color4,
+			 20px 220px 2px 60px $color4,
+			 125px 290px 2px 120px $color5,
+			 20px 220px 2px 65px $color5;
+		}
+	}
+	&-lv1-r .tri-content {
+		background-color: $color1;
+		&:after {
+			position: absolute;
+			content: "";
+			border-radius: 50%;
+			width: 2px;
+			height: 2px;
+			box-shadow: 35px 225px 2px 50px $color3,
+			 100px 220px 2px 40px $color3,
+			 180px 210px 2px 60px $color3,
+			 35px 225px 2px 55px $color2,
+			 100px 220px 2px 45px $color2,
+			 180px 210px 2px 65px $color2;
+		}
+	}
+	&-lv2-l .tri-content {
+		background-color: $color2;
+		&:after {
+			position: absolute;
+			content: "";
+			border-radius: 50%;
+			width: 2px;
+			height: 2px;
+			box-shadow: 110px 340px 2px 115px $color4,
+			 20px 270px 2px 60px $color4,
+			 110px 340px 2px 120px $color5,
+			 20px 270px 2px 65px $color5;
+		}
+	}
+	&-lv2-r .tri-content {
+		background-color: $color1;
+		&:after {
+			position: absolute;
+			content: "";
+			border-radius: 50%;
+			width: 2px;
+			height: 2px;
+			box-shadow: 35px 275px 2px 50px $color3,
+			 100px 270px 2px 40px $color3,
+			 180px 260px 2px 60px $color3,
+			 35px 275px 2px 55px $color2,
+			 100px 270px 2px 45px $color2,
+			 180px 260px 2px 65px $color2;
+		}
+	}
+}
+
+.platform div {
+	$color3: darken($yellow, 10%);
+	$color4: $white;
+	&.platform-f {
+		background-image: linear-gradient(0deg,
+			$color3 10px,
+			darken($color3, 5%) 15px,
+			darken($color3, 5%) 20px,
+			$color3 35px,
+			$color3 40px,
+			transparent 40px
+		 );
+		&-l {
+			width: 300px;
+			height: 40px;
+			position: absolute;
+			background-image: linear-gradient(0deg,
+				$color3 0px,
+				darken($color3, 5%) 5px,
+				darken($color3, 5%) 10px,
+				$color3 25px
+			);
+			overflow: hidden;
+			&:before {
+				position: absolute;
+				width: 4px;
+				height: 2px;
+				content: "";
+				border-radius: 50%;
+				background-color: $color4;
+				box-shadow: 
+					35px -5px 2px 40px $color4,
+					110px -60px 2px 80px $color4,
+					190px -20px 2px 50px $color4,
+					260px -25px 2px 50px $color4,
+
+					35px -0px 2px 40px darken($color3, 15%),
+					110px -55px 2px 80px darken($color3, 15%),
+					190px -15px 2px 50px darken($color3, 15%),
+					260px -20px 2px 50px darken($color3, 15%);
+			}
+		}
+		&-r {
+			content: "";
+			width: 100px;
+			height: 40px;
+			position: absolute;
+			right: 0;
+			background-image: linear-gradient(0deg,
+				$color3 0px,
+				darken($color3, 5%) 5px,
+				darken($color3, 5%) 10px,
+				$color3 25px
+			);
+			overflow: hidden;
+			&:before {
+				position: absolute;
+				width: 4px;
+				height: 2px;
+				content: "";
+				border-radius: 50%;
+				background-color: darken($color4, 5%);
+				box-shadow: 
+					20px -10px 2px 30px darken($color4, 5%),
+					65px -10px 2px 40px darken($color4, 5%),
+
+					20px -5px 2px 30px darken(darken($color3, 15%), 5%),
+					65px -5px 2px 40px darken(darken($color3, 15%), 5%);
+			}
+		}
+	}
+	&.platform-t {
+		background-image: linear-gradient(90deg,
+			$color4 300px,
+			transparent 300px,
+			transparent 400px,
+			$color4 400px
+		), linear-gradient(0deg,
+			transparent 80px,
+			$color4 80px
+		);
+	}
+
+	&.platform-l, &.platform-r {
+		background-image: linear-gradient(0deg,
+			$color3 10px,
+			darken($color3, 5%) 15px,
+			darken($color3, 5%) 20px,
+			$color3 35px,
+
+			$color3 40px,
+			darken($color3, 5%) 45px,
+			darken($color3, 5%) 50px,
+			$color3 65px
+		);
+		overflow: hidden;
+		&:before {
+			position: absolute;
+			width: 4px;
+			height: 2px;
+			content: "";
+			border-radius: 50%;
+			background-color: $color4;
+			box-shadow: 
+				35px -5px 2px 40px $color4,
+				110px -60px 2px 80px $color4,
+				190px -20px 2px 50px $color4,
+				260px -25px 2px 50px $color4,
+
+				35px -0px 2px 40px darken($color3, 15%),
+				110px -55px 2px 80px darken($color3, 15%),
+				190px -15px 2px 50px darken($color3, 15%),
+				260px -20px 2px 50px darken($color3, 15%);
+		}
+	}
+	&.platform-if, &.platform-il, &.platform-ir {
+		background-image: linear-gradient(0deg,
+			darken($color3, 10%) 0px,
+			darken(darken($color3, 5%), 10%) 5px,
+			darken(darken($color3, 5%), 10%) 10px,
+			darken($color3, 10%) 25px
+		);
+		overflow: hidden;
+	}
+	&.platform-il {
+			&:before {
+				position: absolute;
+				width: 4px;
+				height: 2px;
+				content: "";
+				border-radius: 50%;
+				background-color: darken($color4, 5%);
+				box-shadow: 
+					15px -5px 2px 20px darken($color4, 5%),
+					60px -10px 2px 30px darken($color4, 5%),
+
+					15px 0px 2px 20px darken(darken($color3, 15%), 5%),
+					60px -5px 2px 30px darken(darken($color3, 15%), 5%);
+			}
+	}
+	&.platform-if {
+			&:before {
+				position: absolute;
+				width: 4px;
+				height: 2px;
+				content: "";
+				border-radius: 50%;
+				background-color: darken($color4, 5%);
+				box-shadow: 
+					20px -10px 2px 30px darken($color4, 5%),
+					70px -5px 2px 30px darken($color4, 5%),
+
+					20px -5px 2px 30px darken(darken($color3, 15%), 5%),
+					70px 0px 2px 30px darken(darken($color3, 15%), 5%);
+			}
+	}
+	&.platform-ir {
+			&:before {
+				position: absolute;
+				width: 4px;
+				height: 2px;
+				content: "";
+				border-radius: 50%;
+				background-color: darken($color4, 5%);
+				box-shadow: 
+					20px -10px 2px 30px darken($color4, 5%),
+					65px -5px 2px 20px darken($color4, 5%),
+
+					20px -5px 2px 30px darken(darken($color3, 15%), 5%),
+					65px 0px 2px 20px darken(darken($color3, 15%), 5%);
+			}
+	}
+	&.platform-it {
+		background-image: linear-gradient(0deg,
+			transparent 40px,
+			$black 80px,
+			transparent 80px
+		), linear-gradient(-90deg,
+			transparent 40px,
+			$black 90px,
+			transparent 130px
+		), linear-gradient(0deg,
+			$color4 80px,
+			transparent 80px
+		);
+	}
+}
+
+.fence {
+	$color1: lighten($yellow, 10%);
+	$color2: darken($color1, 40%);
+	$gap: 150px;
+	$fence: 30px;
+	$fenceS: 5px;
+	&-a {
+		background-image: linear-gradient(-90deg,
+			transparent 0px,
+			$color2 $fenceS,
+			$color1 $fenceS,
+			$color1 $fenceS + $fence,
+			transparent $fenceS + $fence,
+			transparent $fenceS + $fence + $gap,
+			transparent $fenceS + $fence + $gap,
+			$color2 $fenceS + $fence + $gap + $fenceS,
+			$color1 $fenceS + $fence + $gap + $fenceS,
+			$color1 $fenceS + $fence + $gap + $fenceS + $fence,
+			transparent $fenceS + $fence + $gap + $fenceS + $fence,
+			transparent $fenceS + $fence + $gap + $fenceS + $fence + $gap,
+			transparent ($fenceS + $fence + $gap)*2,
+			$color2 ($fenceS + $fence + $gap)*2 + $fenceS,
+			$color1 ($fenceS + $fence + $gap)*2 + $fenceS,
+			$color1 ($fenceS + $fence + $gap)*2 + $fenceS + $fence,
+			transparent ($fenceS + $fence + $gap)*2 + $fenceS + $fence
+		), linear-gradient(0deg,
+			transparent 50px,
+			darken($color1, 10%) 50px,
+			darken($color1, 10%) 70px,
+			transparent 70px
+		);
+	}
+	&-b {
+		background-image: linear-gradient(90deg,
+			transparent $gap*.6,
+			$color1 $gap*.6,
+			$color1 $gap*.6 + $fence,
+			$color2 $gap*.6 + $fence,
+			transparent $gap*.6 + $fence + $fenceS,
+			transparent $gap*.6 + $fence + $fenceS
+		), linear-gradient(0deg,
+			transparent 50px,
+			darken($color1, 10%) 50px,
+			darken($color1, 10%) 70px,
+			transparent 70px
+		);
+	}
+}
+
+.char {
+	$color: $red;
+
+	&-h .face {
+		background-color: #666;
+
+		background-image: linear-gradient(-180deg, 
+			#E68364 60px,
+			#E68364 60px,
+			#fff 65px,
+			#fff 75px,
+			$color 80px,
+			transparent 80px
+		), linear-gradient(90deg, 
+			transparent 39px,
+			rgba(#000, 0.6) 40px,
+			transparent 41px
+		), linear-gradient(-180deg, 
+			$color 80px,
+			$color 140px,
+			#000 140px,
+			#000 145px,
+			$color 145px,
+			$color 160px,
+			#fff 165px,
+			#fff 168px,
+			$color 173px
+		);
+		&:before {
+			position: absolute;
+			content: "";
+			width: 2px;
+			height: 2px;
+			border-radius: 50%;
+			box-shadow: 
+				30px 35px 2px 4px #000,
+				50px 35px 2px 4px #000,
+				34px 110px 2px 2px #000,
+				44px 110px 2px 2px #000,
+				34px 120px 2px 2px #000,
+				44px 120px 2px 2px #000,
+				40px 140px 2px 6px #FFA400,
+				40px 140px 3px 6px #000;
+		};
+		&:after {
+			position: absolute;
+			content: "";
+			width: 4px;
+			height: 2px;
+			background-color: #fff;
+			box-shadow: 
+				5px 0px 5px 10px #fff,
+				15px 0px 5px 10px #fff,
+				30px 0px 5px 10px #fff,
+				45px 0px 5px 10px #fff,
+				60px 0px 5px 10px #fff,
+				70px 0px 5px 10px #fff,
+
+				10px -11px 5px 10px $color,
+				20px -13px 5px 10px $color,
+				30px -13px 5px 10px $color,
+				41px -13px 5px 10px $color,
+				52px -13px 5px 10px $color,
+				63px -11px 5px 10px $color;
+		}
+	}
+	&-w .face {
+		background-image: linear-gradient(-180deg, 
+			lighten(#E68364,5%) 65px,
+			lighten(#E68364,5%) 65px,
+			#fff 70px,
+			#fff 80px,
+			$color 85px
+		),  linear-gradient(-180deg, 
+			lighten(#E68364,5%) 65px, 
+			lighten(#E68364,5%) 80px
+		);
+		&:before {
+			$hair: darken(#FFA400, 40%);
+			position: absolute;
+			content: "";
+			width: 4px;
+			height: 2px;
+			background-color: #fff;
+			box-shadow: 
+				5px 0px 5px 10px #fff,
+				15px 0px 5px 10px #fff,
+				30px 0px 5px 10px #fff,
+				45px 0px 5px 10px #fff,
+				60px 0px 5px 10px #fff,
+
+				42px -42px 5px 4px #fff,
+				40px -40px 5px 4px #fff,
+				44px -40px 5px 4px #fff,
+				42px -38px 5px 4px #fff,
+
+				10px -11px 5px 10px $color,
+				20px -13px 5px 10px $color,
+				30px -13px 5px 10px $color,
+				41px -13px 5px 10px $color,
+				52px -11px 5px 10px $color,
+
+				18px -16px 5px 10px $color,
+				28px -18px 5px 10px $color,
+				38px -18px 5px 10px $color,
+				48px -18px 5px 10px $color,
+
+				26px -21px 5px 10px $color,
+				36px -23px 5px 10px $color,
+				46px -23px 5px 10px $color,
+
+				36px -26px 5px 10px $color,
+				42px -28px 5px 10px $color,
+
+				4px 10px 2px 4px $hair,
+				4px 15px 2px 4px $hair,
+				4px 20px 2px 4px $hair,
+				4px 25px 2px 4px $hair,
+				4px 30px 2px 4px $hair,
+				4px 35px 2px 4px $hair,
+				4px 40px 2px 4px $hair,
+				4px 45px 2px 4px $hair,
+				4px 50px 2px 4px $hair,
+				4px 55px 2px 4px darken(#FFA400, 20%),
+				5px 60px 2px 4px $hair,
+				8px 65px 2px 3px $hair,
+				11px 68px 2px 2px $hair,
+				15px 71px 2px 1px $hair,
+
+				63px 10px 2px 4px $hair,
+				63px 15px 2px 4px $hair,
+				63px 20px 2px 4px $hair,
+				63px 25px 2px 4px $hair,
+				63px 30px 2px 4px $hair,
+				63px 35px 2px 4px $hair,
+				63px 40px 2px 4px $hair,
+				63px 45px 2px 4px $hair,
+				63px 50px 2px 4px $hair,
+				63px 55px 2px 4px darken(#FFA400, 20%),
+				64px 60px 2px 4px $hair,
+				67px 65px 2px 3px $hair,
+				70px 68px 2px 2px $hair,
+				74px 71px 2px 1px $hair;
+		}
+		&:after {
+			position: absolute;
+			content: "";
+			width: 2px;
+			height: 2px;
+			border-radius: 50%;
+			box-shadow: 
+				25px 35px 2px 5px #000,
+				45px 35px 2px 5px #000,
+
+				35px 105px 2px 5px #FFA400,
+				35px 105px 3px 5px #000,
+				35px 120px 2px 5px #FFA400,
+				35px 120px 3px 5px #000;
+		}
+	}
+}
+
+.road {
+	.face {
+		overflow: hidden;
+		&:before {
+			content: "";
+			position: absolute;
+			top: -4px;
+			right: -4px;
+			width: 100px;
+			height: 40px;
+			background-color: #BFBFBF;
+			box-shadow: 0px 0px 1px 3px darken(#BFBFBF, 40%);
+		}
+	}
+}
+
+.text {
+	$color1: lighten($red, 10%);
+	color: $color1;
+	&-m, &-c {
+			text-shadow: 0px 0px 1px darken($color1, 0%);
+		&> div {
+			text-shadow: 
+				1px -1px 1px darken($color1, 50%),
+				-1px -1px 1px darken($color1, 50%),
+				0px -3px 1px darken($color1, 0%); 
+		}
+	}
+}

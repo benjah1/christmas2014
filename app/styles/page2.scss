@@ -1,0 +1,131 @@
+
+.page2 {
+	.l {
+		width: $pageWidth/2;
+		height: $pageHeight;
+		background-color: $green;
+		$s: rgba($black, 0.2) 10px, rgba($white, 0.6) 10px, $white 12px, transparent 12px;
+		$color: darken($green, 20%);
+		background-image:
+			linear-gradient( 0deg, $s),
+			linear-gradient( 180deg, $s),
+			linear-gradient( 90deg, $s),
+			linear-gradient( -90deg, $s),
+			repeating-linear-gradient(0deg,
+				rgba($color,0.0) 0px,
+				rgba($color,0.0) 2px,
+				rgba($color,0.1) 2px,
+				rgba($color,0.1) 4px,
+				rgba($color,0.0) 4px
+			);
+	}
+	color: $white;
+	font-size: 18px;
+}
+.addthis_sharing_toolbox {
+	position: absolute;
+	bottom: 50px;
+	left: 100px;
+	text-align: center;
+}
+.greeting {
+	width: 100%;
+	position: absolute;
+	top: 100px;
+	div {
+		position: absolute;
+	}
+	$gap: 35px;
+
+	.zh_cn{
+		top: 0*$gap;
+		left: 158px;
+		font-size: 1.2em;
+	}
+	.en{
+		top: 1*$gap;
+		left: 123px;
+		font-size: 1.2em;
+	}
+
+	.ja{
+		top: 2*$gap;
+		left: 60px;
+	}
+	.ko{
+		top: 2*$gap;
+		left: 210px;
+	}
+
+	.ar{
+		top: 3*$gap;
+		left: 40px;
+	}
+	.zh_hk{
+		top: 3*$gap;
+		left: 150px;
+	}
+	.es{
+		top: 3*$gap;
+		left: 250px;
+	}
+
+	.pa{
+		top: 4*$gap;
+		left: 20px;	
+	}
+	.vi{
+		top: 4*$gap;
+		left: 135px;
+	}
+	.ur{
+		top: 4*$gap;
+		left: 290px;
+	}
+
+	.el{
+		top: 5*$gap;
+		left: 30px;
+	}
+	.de{
+		top: 5*$gap;
+		left: 210px;
+	}
+
+	.th{
+		top: 6*$gap;
+		left: 40px;
+	}
+	.nl{
+		top: 6*$gap;
+		left: 210px;
+	}
+
+	.ru{
+		top: 7*$gap;
+		left: 70px;
+	}
+	.pl{
+		top: 7*$gap;
+		left: 210px;
+	}
+
+	.it{
+		top: 8*$gap;
+		left: 90px;
+	}
+	.fa{
+		top: 8*$gap;
+		left: 210px;
+	}
+
+	.pt{
+		top: 9*$gap;
+		left: 100px;
+	}
+	.fr{
+		top: 9*$gap;
+		left: 200px;
+	}
+
+}

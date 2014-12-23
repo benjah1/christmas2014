@@ -1,0 +1,165 @@
+
+.tree-ground {
+	transform: translate3d(160px, 420px, 2px);
+
+	&-shadow {
+		transform: translate3d(160px, 420px, 1px);
+	}
+}
+.tree-stump {
+	$tree-stump-XZ: 4.8deg;
+	$tree-stump-Y: 45deg;
+	transform: translate3d(160px, 420px, 127px);
+	.modifier {
+		transform: translate3d(0, 0px, 125px) rotateX(-90deg);
+	}
+	&-l {
+		transform-origin: center top 0;
+		transform: rotateX($tree-stump-XZ) rotateZ($tree-stump-XZ) rotateY(-$tree-stump-Y);
+	}
+	&-r {
+		transform-origin: center top 0;
+		transform: rotateX($tree-stump-XZ) rotateZ(-$tree-stump-XZ) rotateY($tree-stump-Y);
+	}
+	&-shadow {
+		transform: translate3d(0, 0, 1px);
+	}
+}
+.tree-lv1 {
+	$tree-level1-XZ: 17.5deg;
+	$tree-level1-Y: 45deg;
+	transform: translate3d(160px, 420px, 110px);
+	.modifier {
+		transform: translate3d(0, 10px, 120px) rotateX(-90deg);
+	}
+	&-l {
+		transform-origin: center top 0;
+		transform: rotateX($tree-level1-XZ) rotateZ($tree-level1-XZ) rotateY(-$tree-level1-Y);
+	}
+	&-r {
+		transform-origin: center top 0;
+		transform: rotateX($tree-level1-XZ) rotateZ(-$tree-level1-XZ) rotateY($tree-level1-Y);
+	}
+	&-shadow {
+		transform: translate3d(0px, 0px, 2px);
+	}
+}
+.tree-lv2 {
+	$tree-level2-XZ: 12.2deg;
+	$tree-level2-Y: 45deg;
+	transform: translate3d(160px, 420px, 250px);
+	.modifier {
+		transform: translate3d(0, 0, 150px) rotateX(-90deg);
+	}
+	.face {
+		transform-origin: center top 0;
+	}
+	&-l {
+		transform: rotateX($tree-level2-XZ) rotateZ($tree-level2-XZ) rotateY(-$tree-level2-Y);
+	}
+	&-r {
+		transform: rotateX($tree-level2-XZ) rotateZ(-$tree-level2-XZ) rotateY($tree-level2-Y);
+	}
+}
+.platform {
+	transform: translate3d(550px, 125px, 82px);
+
+	.modifier {
+		transform: translate3d(0px, 0, 0px) rotateX(-90deg);
+	}
+	&-t {
+		transform: translate3d(0, 0, -125px) rotateX(90deg);
+	}
+	&-l {
+		transform: translate3d(0, 0, 125px) rotateY(90deg);
+	}
+	&-r {
+		transform: translate3d(500px, 0, 125px) rotateY(90deg);
+	}
+	&-f {
+		transform: translate3d(0, 0, 125px);
+	}
+	&-it {
+		transform: translate3d(0, 40px, -125px) rotateX(90deg);
+	}
+	&-il {
+		transform: translate3d(300px, 0, 125px) rotateY(90deg);
+	}
+	&-ir {
+		transform: translate3d(400px, 0, 125px) rotateY(90deg);
+	}
+	&-if {
+		transform: translate3d(300px, 0, 45px);
+	}
+	&-shadow {
+		transform: translate3d(550px, 125px, 1px);
+	}
+}
+.fence {
+	transform: translate3d(780px, 50px, 130px);
+	&-a {
+		transform: translate3d(-450px, 0px, 50px) rotateX(-90deg);
+	}
+	&-b {
+		transform: translate3d(0, 0, 50px) rotateX(-90deg) rotateY(-90deg);
+	}
+	&-shadow {
+		transform: translate3d(480px, 45px, 1px);
+	}
+}
+.char {
+	transform: translate3d(450px,150px,80px);
+
+	&-h {
+		transform-origin: center bottom 0;
+		transform: translate3d(-81px, 0px, 178px) rotateX(-90deg);
+		&-shadow {
+			transform: translate3d(82px,140px,0px);
+		}
+	}
+	&-w {
+		transform-origin: center bottom 0;
+		transform: translate3d(0,0px,160px) rotateX(-90deg);
+		&-shadow {
+			transform: translate3d(160px,145px,0px);
+		}
+	}
+}
+.road {
+	transform: translate3d(650px,300px,2px);
+	.brick-1 {
+		transform: translate3d(0,0,0) rotateZ(0deg);
+	}
+	.brick-2 {
+		&-modifier {
+			transform: translate3d(10px,70px,0) rotateZ(-15deg);
+		}
+	}
+	.brick-3 {
+		&-modifier {
+			transform: translate3d(35px,135px,0) rotateZ(-30deg);
+		}
+	}
+	.brick-4 {
+		&-modifier {
+			transform: translate3d(75px,190px,0) rotateZ(-45deg);
+		}
+	}
+}
+.text {
+	transform: translate3d(450px,380px,2px);
+	.text-m {
+		transform-origin: center bottom 0;
+		transform: translate3d(-70px,20px,59px) rotateZ(-25deg) rotateX(-90deg);
+		&-shadow {
+			transform: translate3d(0px,0px,1px) rotateZ(-25deg);
+		}
+	}
+	.text-c {
+		transform-origin: center bottom 0;
+		transform: translate3d(130px,100px,59px) rotateZ(35deg) rotateX(-90deg);
+		&-shadow {
+			transform: translate3d(0px,0px,1px) rotateZ(35deg);
+		}
+	}
+}

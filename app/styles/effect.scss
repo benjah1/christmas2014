@@ -1,0 +1,13 @@
+.fork {
+	filter: drop-shadow(0 0 5px $white);
+}
+
+.holder {
+	transition: box-shadow 0.5s;
+ 	.up & {
+		box-shadow: 0 0 15px 1px $white;
+	}
+}
+.page0 .r:before {
+	filter: drop-shadow(0 0 5px #fff);
+}

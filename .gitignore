@@ -1,0 +1,5 @@
+.vagrant/
+puphpet/
+bower_components/
+dist/
+coverage/

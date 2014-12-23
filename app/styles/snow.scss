@@ -1,0 +1,102 @@
+
+.snowfield {
+	position: absolute;
+	left: $pageWidth/2;
+}
+
+.layer0, .layer1, .layer2 {
+	animation: waving 2s ease-in-out 0s infinite;
+	animation-direction:alternate;
+	transform-style: flat;
+	transition: transform-style 0.5s;
+}
+.snow-set {
+	animation: circling 30s linear 0s infinite;
+	transform-origin: top center 0;
+	animation-direction:alternate;
+}
+.layer1 {
+	animation-delay: 0.667s;
+	.snow-set {
+		animation-duration: 50s;
+	}
+}
+.layer2 {
+	animation-delay: 1.333s;
+	.snow-set {
+		animation-duration: 70s;
+	}
+}
+
+.snow {
+	&:after {
+		width: 2px;
+		height: 2px;
+		background-color: $white;
+		content: "";
+		position: absolute;
+		border-radius: 50%;
+		box-shadow: 0 0 1px 1px $white;
+		animation: falling 10s ease-in-out 0s infinite;
+		opacity: 0;
+	}
+	transform-origin: top center 0;
+	transition: transform 0.5s;
+}
+
+.up {
+	.layer0, .layer1, .layer2 {
+		transform-style: preserve-3d;
+	}
+}
+
+@include snow("s00", 3, 0, 12, 0, -10, 0, 0);
+@include snow("s01", 2, 8, 14, -50, 10, 0, 8);
+@include snow("s02", 2, 1, 14, -100, 0, 0, 16);
+@include snow("s03", 4, 9, 10, 50, 10, 0, -8);
+@include snow("s04", 4, 2, 10, 100, -10, 0, -16);
+
+@include snow("s10", 4, 10, 10, 0, 100, 10, 0);
+@include snow("s11", 3, 3, 12, -50, -80, -10, 8);
+@include snow("s12", 3, 11, 12, -100, 100, 10, 16);
+@include snow("s13", 5, 4, 8, 50, -80, -10, -8);
+@include snow("s14", 5, 12, 8, 100, 100, 10, -16);
+
+@include snow("s20", 4, 5, 10, 0, -100, -10, 0);
+@include snow("s21", 3, 13, 12, -50, 80, 10, 8);
+@include snow("s22", 3, 6, 12, -100, -100, -10, 16);
+@include snow("s23", 5, 14, 8, 50, 80, 10, -8);
+@include snow("s24", 5, 7, 8, 100, -100, -10, -16);
+
+
+@keyframes falling {
+	0% {
+		transform: translate3d(0,-$pageHeight*0.1,0);
+		opacity: 0;
+	}
+	10%, 90% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate3d(0,$pageHeight*1.2,0);
+		opacity: 0;
+	}
+}
+
+@keyframes waving {
+	0% {
+		transform: rotateZ(-5deg);
+	}
+	100% {
+		transform: rotateZ(5deg);
+	}
+}
+
+@keyframes circling {
+	0% {
+		transform: rotateY(-30deg);
+	}
+	100% {
+		transform: rotateY(30deg);
+	}
+}

@@ -1,0 +1,110 @@
+.card {
+	background-color: green;
+	top: $pageHeight/2;
+	left: $pageWidth/2;
+	width: 0;
+	height: 0;
+	transition: transform 1s;
+}
+
+.page {
+	@extend %three-d;
+	width: $pageWidth;
+	height: $pageHeight;
+	left: -$pageWidth/2;
+	top: -$pageHeight/2;
+	transition: transform 1s;
+
+	.content {
+		width: $pageWidth;
+		height: $pageHeight;
+		position: relative;
+	}
+}
+
+.slide {
+	@extend %three-d;
+
+	.content {
+		width: $pageWidth;
+		height: $pageHeight;
+		position: relative;
+	}
+	&.next, &.prev {
+		transform: translate3d( 0, -$pageHeight/2, 0);
+
+		.bside {
+			.content {
+				transform: rotateY(180deg);
+			}
+		}
+	}
+}
+
+.aside, .bside {
+	@extend %three-d;
+	// top: -1*$pageHeight/2;
+	width: $pageWidth/2;
+	height: $pageHeight;
+	transform-origin: center left 0;
+	transition: transform 1s;	
+		
+	.inner {
+		@extend %three-d;
+		height: $pageHeight;
+		transform-origin: center left 0;
+		transition: transform 1s;	
+
+		.overflow {
+			width: $pageWidth/($innerCount * 2) + 1;
+			overflow: hidden;
+
+		}
+	}
+
+	.inner .inner {
+		left: $pageWidth/ ($innerCount * 2);
+	}
+}
+
+@include innerPosition(0, $innerCount, $pageWidth/2);
+
+/***********
+* open close effect 
+***********/
+.page {
+	&.next {
+		&-open {
+			z-index: 2;
+			width: $pageWidth/2;
+			overflow: hidden;
+			left: 0;
+			.content{
+				left: -$pageWidth/2;
+			}
+		}
+		&-close {
+			z-index: 1;
+			left: -$pageWidth/2;
+			width: $pageWidth/2;
+			overflow: hidden;
+		}
+	}
+	&.prev {
+		&-open {
+			z-index: 2;
+			width: $pageWidth/2;
+			overflow: hidden;
+			
+		}
+		&-close {
+			z-index: 1;
+			width: $pageWidth/2;
+			overflow: hidden;
+			left: 0;
+			.content {
+				left: -$pageWidth/2;
+			}
+		}
+	}
+}

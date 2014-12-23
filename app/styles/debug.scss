@@ -1,0 +1,54 @@
+@if (0==1) {
+
+	.stage {
+		perspective: 10000px;
+		outline: 1px solid black;
+	}
+
+	.animation {
+		&:after {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			box-shadow: 0 0 0 2px #00f!important;
+		}
+	}
+	.face.face.face.face {
+		background-image: none;
+		div {
+			background-image: none;
+			background-color: transparent;
+			&:before, &:after {
+				box-shadow: none;
+			}
+		}
+		background-color: rgba(#000, 0.2);
+	}
+
+	.shadow {
+		&:after {
+			content: "";
+			position: absolute;
+			width: 2px;
+			height: 2px;
+			box-shadow: 0 0 0 2px #0f0!important;
+		}
+	}
+
+	.layer0, .layer1, .layer2 {
+		outline: 1px solid #000;
+		width: 100px;
+		height: 100px;
+	}
+	.snow {
+		width: 5px;
+		height: $pageHeight;
+		outline: 1px solid #000;
+		&:after {
+			border-radius: 0%;
+			box-shadow: none;
+			background-color: rgba(#000, 0.2);
+		}
+	}
+}

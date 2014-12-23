@@ -1,0 +1,146 @@
+// bower:scss
+@import '../bower_components/mathsass/dist/math';
+// endbower
+
+
+$pageWidth: 800px;
+$pageHeight: 600px;
+$pageNum: 2;
+$innerCount: 8;
+$perspective: 800px;
+
+$red: #CF000F;
+$yellow: #AF6C39;
+$green: #3D9130;
+$blue: darken(#892D67, 0%);
+$white: #ECECEC;
+$black: #333;
+$animateTime: 1.2s;
+
+* {
+	cursor: default;
+	user-select: none;
+}
+
+body {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #000;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.container {
+	padding-top: 0px;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	$color: #492727;
+	$s: transparent 0px,
+			transparent 4px,
+			rgba($color,0.02) 4px,
+			rgba($color,0.02) 6px,
+			transparent 6px,
+			transparent 10px;
+	background: repeating-linear-gradient(0deg,
+		$s
+	), repeating-linear-gradient(45deg,
+		$s
+	), repeating-linear-gradient(-45deg,
+		$s
+	), repeating-linear-gradient(30deg,
+		$s
+	), repeating-linear-gradient(-60deg,
+		$s
+	), repeating-linear-gradient(-30deg,
+		$s
+	), repeating-linear-gradient(60deg,
+		$s
+	);
+	background-color: #b72424;
+}
+
+.fork img{
+	cursor: pointer;
+	z-index: 10;
+}
+
+.stage {
+	margin: 0px auto;
+	width: $pageWidth;
+	height: $pageHeight;
+	position: relative;
+	perspective: $perspective;
+	transform-origin: top center 0;
+}
+
+%three-d {	
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	transform-style: preserve-3d;
+	transform-origin: center center 0;
+}
+
+.obj {
+	@extend %three-d;
+}
+
+.face {
+	@extend %three-d;
+	transform-origin: 0 0 0;
+}
+.scene {
+	@extend %three-d;
+	transform-origin: $pageWidth/2 $pageHeight/2 -100px;
+	transform: translate3d(0px,0px,0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+@import 'functions';
+@import 'book';
+
+/***********
+* page specific
+***********/
+.card {
+	.page {
+		display: none;
+	}
+	&.page0 {
+		transform: rotate3d(0,1,0,0) scale3d(1,1,1) translate3d( -1*$pageWidth/4, 0, 0);
+	}
+	
+	&.page1 {
+		transform: rotate3d(1,0,0,90deg) scale3d(.8,.8,.8) translate3d( 0, 0, -1*$pageHeight/3);	
+	}
+	
+	&.page2 {
+		transform: rotate3d(0, 1, 0, 0) scale3d(1,1,1) translate3d( 1*$pageWidth/4, 0, 0);
+	}
+}
+
+@import 'snow';
+@import 'page0';
+@import 'page1-size';
+@import 'page1-model';
+@import 'page1-color';
+@import 'page1-shadow';
+@import 'page2';
+@import 'animate';
+@import 'footer';
+@import 'tip';
+@import 'effect';
+@import 'debug';
+
+
+.browsehappy {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}

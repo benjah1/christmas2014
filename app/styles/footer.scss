@@ -1,0 +1,64 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	text-align: right;
+	font-size: 12px;
+	width: 100%;
+	a {
+		color: darken($red, 30%);
+		cursor: pointer;
+	}
+	p {
+		margin: 12px;
+		float: right;
+	}
+	.audio {
+		width: 14px;
+		height: 28px;
+		position: relative;
+		margin: 12px;
+		float: right;
+
+		&:hover {
+			audio {
+				transform: translateX(-100%) translateX(28px) scale(1);
+				display: block;
+			}
+			&:before, &:after {
+				transform: scale(0);
+			}
+		}
+		&:before, &:after {
+			transition: transform 0.6s;
+			transform: scale(1);
+			content: "";
+			position: absolute;
+			top: 50%;
+			margin: -8px 0 0;
+		}
+		&:before {
+			left:8px;
+			width:6px;
+			height:10px;
+			border-width:2px 1px 0 2px;
+			border-style:solid;
+			border-color:#000 transparent transparent #000;
+			background:transparent;
+			border-radius:0 10px 0 0;
+		}
+		&:after {
+			left:3px;
+			width:7px;
+			height:6px;
+			margin-top:0;
+			background:#000;
+			border-radius:10px;
+		}
+
+		audio {
+			transform-origin: right center 0;
+			transition: transform 0.6s;
+			transform: translateX(-100%) translateX(28px) scale(0);
+		}
+	}
+}

@@ -1,0 +1,198 @@
+$shadow: transparentize($black, 0.5);
+
+.tree-ground-shadow {
+	.face:before {
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 2px;
+		height: 2px;
+		border-radius: 50%;
+		box-shadow: 0px 0px 0px 115px $shadow;
+	}
+}
+.tree-stump-shadow {
+	.face:before {
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 2px;
+		height: 2px;
+		transform: rotateZ(45deg);
+		box-shadow: -5px 0px 0px 40px $shadow;
+	}
+}
+.tree-lv1-shadow {
+	.a.face {
+		width: 100px;
+		height: 300px;
+		background-color: $shadow;
+		top: -10px;
+		left: -10px;
+	}
+	.b.face:before {
+		background-color: $shadow;
+		position: absolute;
+		top: -80px;
+		left: -80px;
+		content: "";
+		width: 160px;
+		height: 160px;
+		transform: rotateZ(45deg);
+		box-shadow: none;
+	}
+}
+.tree-lv2-shadow {
+	.a.face {
+		width: 200px;
+		height: 90px;
+		background-color: $shadow;
+		box-shadow: 0 0 0px 40px $shadow;
+		top: -10px;
+		left: -10px;
+	}
+}
+.platform-shadow {
+	.face {
+		width: 420px;
+		height: 170px;
+		background-color: $shadow;
+		left: -210px;
+		top: -85px;
+		box-shadow: -5px 0 0px 50px $shadow;
+	}
+}
+.fence-shadow {
+	.face:before {
+		$size: 5px;
+		$blur: 0px;
+		$s1: "";
+		@for $i from 0 through 82 {
+			@for $j from 0 through 1 {
+				$s1: #{$s1}, #{($i*5+$j*5)*-1-40}px 5px $blur*5 $size/5 $shadow
+			}
+		}
+
+		@for $i from 0 through 32 {
+			@for $j from 0 through 1 {
+				$s1: #{$s1}, 0px #{($i*5+$j*5)}px $blur*5 $size/5 $shadow
+			}
+		}
+
+		color: $shadow;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 2px;
+		height: 2px;
+		box-shadow: 
+			-10px 5px $blur $size $shadow,
+			-15px 5px $blur $size $shadow,
+			-20px 5px $blur $size $shadow,
+			-25px 5px $blur $size $shadow,
+			-30px 5px $blur $size $shadow,
+			-35px 5px $blur $size $shadow,
+
+			-190px 5px $blur $size $shadow,
+			-195px 5px $blur $size $shadow,
+			-200px 5px $blur $size $shadow,
+			-205px 5px $blur $size $shadow,
+			-210px 5px $blur $size $shadow,
+			-215px 5px $blur $size $shadow,
+			-220px 5px $blur $size $shadow,
+
+			-375px 5px $blur $size $shadow,
+			-380px 5px $blur $size $shadow,
+			-385px 5px $blur $size $shadow,
+			-390px 5px $blur $size $shadow,
+			-395px 5px $blur $size $shadow,
+			-400px 5px $blur $size $shadow,
+			-405px 5px $blur $size $shadow,
+
+			-2px 95px $blur $size $shadow,
+			-2px 100px $blur $size $shadow,
+			-2px 105px $blur $size $shadow,
+			-2px 110px $blur $size $shadow,
+			-2px 115px $blur $size $shadow,
+			-2px 120px $blur $size $shadow,
+			-2px 125px $blur $size $shadow
+
+			$s1,
+				0 0 0 0 $shadow;
+	}
+}
+.char-h-shadow {
+	.face:before {
+		background-color: $shadow;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 50px;
+		height: 10px;
+		border-radius: 50%;
+		box-shadow:
+			0px 25px 10px 10px $white,
+			0px 0px 10px 20px $shadow;
+	}
+}
+.char-w-shadow {
+	.face:before {
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "";
+		width: 44px;
+		height: 4px;
+		border-radius: 50%;
+		box-shadow:
+			0px 20px 10px 10px $white,
+			0px 0px 10px 20px $shadow;
+	}
+}
+.text-m-shadow {
+	.face:before {
+		background-color: $shadow;
+		position: absolute;
+		top: -30px;
+		left: -175px;
+		content: "";
+		width: 180px;
+		height: 25px;
+		border-radius: 10%;
+		//box-shadow: 0px 0px 10px 5px $black;
+	}
+}
+.text-c-shadow {
+	.face:before {
+		background-color: $shadow;
+		position: absolute;
+		top: -8px;
+		left: 10px;
+		content: "";
+		width: 290px;
+		height: 25px;
+		border-radius: 10%;
+		//box-shadow: 0px 0px 10px 5px $black;
+	}
+}
+.road {
+	.shadow.face:before {
+		top: 5px;
+		right: 5px;
+		width: 90px;
+		height: 90px;
+		background-color: $shadow;
+		box-shadow: 0px 0px 10px 5px $shadow;
+	}
+}
+
+.shadow .face {
+	transform-style: flat;
+}
